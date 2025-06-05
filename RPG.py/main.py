@@ -53,40 +53,63 @@ def lore():
 
 
 # Funcoes de interação
+
 # NPCs
+visita = False
+talk = ""
+def aldeao():
+    global visita
+    global talk
+    if visita == False :
+        visita == True
+        os.system('cls') 
+        print("Vejo que você é novo por aqui!")
+        print("")
+        print("O que você deseja?")
+        print("________________________________________________________________________________")
+        print("1. Quest")
+        print("2. Adeus...")
+        print("________________________________________________________________________________")
+        talk = input("=>  ")
+        
+        if talk == 1:
+            os.system('cls')
+            print("Quest:")
+            print("")
+
 
 # Monstros do mapa 
-Goblin = {
+goblin = {
     "name": "Goblin",
     "hp": 5,
     "forca": 1,
     "exp": 5,
 }
-Lobo_Selvagem = {
+lobo_Selvagem = {
     "name": "Lobo Selvagem",
     "hp": 7,
     "forca": 3,
     "exp": 7,
 }
-Morcego = {
+morcego = {
     "name": "Morcego",
     "hp": 3,
     "forca": 1,
     "exp": 2,
 }
-Esqueleto = {
+esqueleto = {
     "name": "Esqueleto",
     "hp": 4,
     "forca": 2,
     "exp": 6,
 }
-Pivete = {
+pivete = {
     "name": "Pivete",
     "hp": 10,
     "forca": 3,
     "exp": 15,
 }
-Bandidos = {
+bandidos = {
     "name": "Bandidos",
     "hp": 15,
     "forca": 5,
@@ -96,17 +119,18 @@ Bandidos = {
 mapas = {
     "Deep Florest": {
         "descricao": "Uma floresta densa e sombria, cheia de árvores altas e arbustos espinhosos.",
-        "monstros": ["Goblin", "Lobo Selvagem"]
+        "monstros": [goblin, lobo_Selvagem]
     },
     
     "Cave": {
         "descricao": "Uma caverna úmida e escura, com estalactites penduradas no teto.",
-        "monstros": ["Morcego", "Esqueleto"]
+        "monstros": [morcego, esqueleto]
     },
 
     "Village": {
         "descricao": "Uma pequena vila com casas de madeira e um mercado movimentado.",
-        "monstros": ["Pivete", "Bandidos"]
+        "monstros": [pivete, bandidos],
+        "npc": [aldeão]
     }
 }
 
