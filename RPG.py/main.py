@@ -58,8 +58,6 @@ def lore():
 visita = False
 talk = ""
 def aldeao():
-    global visita
-    global talk
     if visita == False :
         visita == True
         os.system('cls') 
@@ -75,7 +73,8 @@ def aldeao():
         if talk == 1:
             os.system('cls')
             print("Quest:")
-            print("")
+            print("1. Mate ")
+
 
 
 # Monstros do mapa 
@@ -115,6 +114,7 @@ bandidos = {
     "forca": 5,
     "exp": 20,
 }
+
 # Mapas
 mapas = {
     "Deep Florest": {
@@ -130,13 +130,21 @@ mapas = {
     "Village": {
         "descricao": "Uma pequena vila com casas de madeira e um mercado movimentado.",
         "monstros": [pivete, bandidos],
-        "npc": [aldeão]
+        "npc": ["aldeao"]
     }
 }
 
 
 # Funçao para entrar nos mapas
+deep_florest = ''
+cave = ''
+village = ''
+
 def mapa():
+    global deep_florest, cave, village
+    deep_florest = False
+    cave = False
+    village = False
     os.system('cls')
     print("________________________________________________________________")
     print("Mapas disponíveis:")
@@ -144,11 +152,33 @@ def mapa():
     for mapa in mapas:
         print(f"- {mapa}")
     print("________________________________________________________________")
-    input("Pressione Enter para voltar ao menu principal...")
+    print("")
+    print("Para viajar, digite o nome de algum lugar. Se você deseja fechar o maa, digite 'Fechar'")
+    print("")
+    acao = input("=>  ").lower()
+    
+    def entrar(acao):
+        global deep_florest, cave, village
+        if acao == "deep florest":
+            deep_florest = True
+            cave = False
+            village = False
+        elif acao == "cave":
+            deep_florest = False
+            cave = True
+            village = False
+        elif acao == "village":
+            deep_florest = False
+            cave = False
+            village = True
+
+    entrar(acao)
     interface()
 
 # Funçoes de luta
-
+def lutar():
+    print("Abacate")
+    
 
 # Menu de status do personagem
 def status():
