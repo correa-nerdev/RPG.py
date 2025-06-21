@@ -205,6 +205,7 @@ def comandos():
     print("1. 'status' - Ver status do personagem")
     print("2. 'mapa' - Verificar o mapa atual")
     print("3. 'lutar' -  Procura oponente para batalha")
+    print("4. 'sair' - Sai do jogo")
     print("________________________________________________________________")
     input("Precione Enter para fechar lista de comandos...")
     interface()
@@ -224,6 +225,11 @@ def interface():
         mapa()
     elif acao == "lutar":
         lutar()
+    elif acao == "sair":
+        return "..."
+    else:
+        print("Digite uma ação válida")
+        interface()
     
 
 lore()
